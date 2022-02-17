@@ -1,10 +1,8 @@
-import parseCloudinaryUrl from '../src/index';
+import { parse } from '../src/index';
 
-describe('parseCloudinaryUrl', () => {
+describe('parse', () => {
   it('splits configuration without options', () => {
-    const uploadConfig = parseCloudinaryUrl(
-      'cloudinary://apiKey:apiSecret@cloudName'
-    );
+    const uploadConfig = parse('cloudinary://apiKey:apiSecret@cloudName');
 
     expect(uploadConfig).toEqual({
       apiKey: 'apiKey',
@@ -15,7 +13,7 @@ describe('parseCloudinaryUrl', () => {
   });
 
   it('splits configuration with options', () => {
-    const uploadConfig = parseCloudinaryUrl(
+    const uploadConfig = parse(
       'cloudinary://apiKey:apiSecret@cloudName?uploadFolder=customFolder'
     );
 

@@ -1,4 +1,4 @@
-export default function parseCloudinaryUrl(url: string) {
+export const parse = (url: string) => {
   const [apiKey, apiSecret, cloudName, options] = url
     .split(/cloudinary:\/\/(\w+):(\w+)@(\w+)\??(.*)/)
     .filter(Boolean);
@@ -9,4 +9,4 @@ export default function parseCloudinaryUrl(url: string) {
     cloudName,
     options: Object.fromEntries(new URLSearchParams(options)),
   };
-}
+};
